@@ -302,7 +302,7 @@ h1 {
 #quizResult {
     margin-top: 20px;
     font-family: 'Permanent Marker', cursive;
-    font-size: 2em;
+    font-size: 1.5em;
     color: pink;
     font-weight: normal;
     text-align: center;
@@ -320,8 +320,8 @@ h1 {
 }
 
 .final-gif-image {
-    max-width: 150px;
-    max-height: 150px;
+    max-width: 300px;
+    max-height: 300px;
     width: auto;
     height: auto;
     object-fit: contain;
