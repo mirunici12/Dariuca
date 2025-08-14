@@ -1,14 +1,20 @@
+/* Asigură-te că `body` și `html` au 100% înălțime */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #ffe0ff; /* Un fundal deschis, un albastru foarte pal */
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fontul general al paginii */
+    min-height: 100vh; /* Folosim min-height pentru flexibilitate */
+    background-color: #ffe0ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
     text-align: center;
-    overflow: hidden; /* Previne scroll-ul accidental al paginii */
+    overflow: hidden; /* Previne scroll-ul accidental */
 }
 
 .container {
@@ -17,50 +23,43 @@ body {
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     max-width: 450px;
-    width: 90%; /* Responsive width */
+    width: 90%;
+    /* Am mărit înălțimea minimă a containerului principal */
+    min-height: 700px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Aplicăm aceleași proprietăți de înălțime pentru toate secțiunile */
+#main-content,
+#finalImageContainer,
+#imageGallery,
+#quizContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Aceasta este cheia - 100% din părinte (.container) */
+    padding: inherit;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 500px; /* Asigură o înălțime minimă suficientă */
-    position: relative; /* Necesar pentru poziționarea absolută a copiilor */
-    overflow: hidden; /* Crucial pentru a tăia conținutul care depășește */
-}
-
-/* Partea de "Suflă în lumânări" - INIȚIALĂ */
-#main-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    transition: opacity 1s ease-out;
-}
-
-/* Stiluri pentru celelalte secțiuni, cu poziționare absolută pentru tranziții fluide */
-#finalImageContainer,
-#imageGallery,
-#quizContainer { /* Adaugat quizContainer aici */
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    padding: inherit; /* Moștenește padding-ul de la .container */
-    box-sizing: border-box; /* Include padding în lățime/înălțime */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 1s ease-in-out; /* Tranziție pentru apariție/dispariție */
+    justify-content: center; /* Centrare verticală a conținutului */
+    transition: opacity 1s ease-in-out;
 }
 
 h1 {
-    color: pink; /* Un albastru vibrant */
+    color: pink;
     margin-bottom: 10px;
-    font-size: 2.5em; /* Scalabil cu unități em */
+    font-size: 2.5em;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
-    font-family: 'Permanent Marker', cursive; /* Noul font pentru H1 */
+    font-family: 'Permanent Marker', cursive;
 }
 
 .instruction {
@@ -73,7 +72,7 @@ h1 {
 .flork-cake-container {
     position: relative;
     width: 100%;
-    max-width: 350px; /* Limită dimensiunea imaginii */
+    max-width: 350px;
     margin: 0 auto 30px;
     display: block;
 }
@@ -99,11 +98,11 @@ h1 {
 }
 
 .flame-overlay.blown-out {
-    display: none; /* Stinge flacăra */
+    display: none;
 }
 
 #blowButton {
-    background-color: pink; /* Un albastru mediu */
+    background-color: pink;
     color: white;
     padding: 15px 30px;
     border: none;
@@ -117,12 +116,12 @@ h1 {
 }
 
 #blowButton:hover {
-    background-color: palevioletred; /* O nuanță mai deschisă la hover */
+    background-color: palevioletred;
     transform: translateY(-2px);
 }
 
 #blowButton:disabled {
-    background-color: magenta; /* Albastru închis când e dezactivat */
+    background-color: magenta;
     box-shadow: none;
     cursor: default;
 }
@@ -139,10 +138,10 @@ h1 {
 .final-image {
     max-width: 100%;
     height: auto;
-    max-height: 50%; /* Limitează înălțimea imaginii finale */
+    max-height: 50%;
     border-radius: 10px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    object-fit: contain; /* Asigură că imaginea se încadrează complet */
+    object-fit: contain;
 }
 
 .continue-button, .gift-button {
@@ -235,6 +234,10 @@ h1 {
 /* Stiluri pentru formularul de Quiz */
 #quizContainer {
     gap: 15px;
+    flex-grow: 1;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .quiz-question {
@@ -247,7 +250,7 @@ h1 {
 #quizForm {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     width: 100%;
     max-width: 300px;
     align-items: flex-start;
@@ -256,12 +259,12 @@ h1 {
 #quizForm label {
     display: flex;
     align-items: center;
-    font-size: 0.90em; /* Aici am făcut fontul mai mic */
+    font-size: 0.90em;
     cursor: pointer;
-    padding: 8px 0;
+    padding: 5px 0;
     width: 100%;
     transition: color 0.2s ease;
-    text-align: left; /* Asigură că textul e aliniat la stânga în label */
+    text-align: left;
 }
 
 #quizForm label:hover {
@@ -272,11 +275,11 @@ h1 {
     margin-right: 10px;
     transform: scale(1.2);
     cursor: pointer;
-    flex-shrink: 0; /* Previne micșorarea butonului radio */
+    flex-shrink: 0;
 }
 
 #submitQuiz {
-    background-color: pink; /* Culoare buton Submit */
+    background-color: pink;
     color: white;
     padding: 12px 25px;
     border: none;
@@ -286,30 +289,30 @@ h1 {
     font-weight: bold;
     box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
     transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-top: 20px;
+    margin-top: 15px;
     width: 100%;
 }
 
 #submitQuiz:hover {
-    background-color: pink; /* Culoare la hover pentru buton Submit */
+    background-color: pink;
     transform: translateY(-2px);
 }
 
 /* Noul stil pentru mesajul final */
 #quizResult {
     margin-top: 20px;
-    font-family: 'Permanent Marker', cursive; /* Noul font pentru mesajul final */
-    font-size: 2em; /* Același font-size ca și h1 */
-    color: pink; /* Același albastru vibrant ca și h1 */
-    font-weight: normal; /* Fontul 'Permanent Marker' e mai bine fără bold */
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2em;
+    color: pink;
+    font-weight: normal;
     text-align: center;
     line-height: 1.3;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.05); /* Același text-shadow ca și h1 */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
 }
 
 /* Stiluri pentru GIF-ul final - DIMENSIUNE MULT MAI MICĂ */
 #finalGifContainer {
-    margin-top: 25px; /* Spațiu deasupra GIF-ului */
+    margin-top: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -317,11 +320,11 @@ h1 {
 }
 
 .final-gif-image {
-    max-width: 150px; /* Redus drastic dimensiunea maximă a GIF-ului */
-    max-height: 150px; /* Redus drastic înălțimea maximă a GIF-ului */
-    width: auto; /* Permite redimensionarea proporțională */
-    height: auto; /* Permite redimensionarea proporțională */
-    object-fit: contain; /* Asigură că imaginea se încadrează complet */
+    max-width: 150px;
+    max-height: 150px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
@@ -343,12 +346,16 @@ h1 {
 @media (max-width: 480px) {
     .container {
         padding: 20px;
-        min-height: 400px;
+        /* Am mărit și mai mult înălțimea minimă a containerului principal pe mobil */
+        min-height: 650px;
     }
     #finalImageContainer,
     #imageGallery,
     #quizContainer {
         padding: 20px;
+        /* Am mărit înălțimea minimă a containerului quiz pe mobil */
+        min-height: 600px;
+        justify-content: space-evenly;
     }
     .final-message-text {
         font-size: 1.3em;
@@ -357,7 +364,7 @@ h1 {
         max-height: 45%;
     }
     h1 {
-        font-size: 2em; /* Dimensiunea H1 pe mobil */
+        font-size: 2em;
     }
     .instruction {
         font-size: 1.1em;
@@ -393,10 +400,10 @@ h1 {
         padding: 10px 20px;
     }
     #quizResult {
-        font-size: 2em; /* Ajustează dimensiunea pentru mobil */
+        font-size: 2em;
     }
     .final-gif-image {
-        max-width: 50px; /* Și mai mic pe mobil */
+        max-width: 50px;
         max-height: 50px;
     }
 }
