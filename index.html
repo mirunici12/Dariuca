@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Mulți Ani, Dariuca vrajitoarea!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div id="main-content">
+            <h1>La muuulti ani, Daria!</h1>
+            <p class="instruction">Sufla in lumanare ❤, STIU CA AM FOST O NEMERNICA</p>
+
+            <div class="flork-cake-container">
+                <img src="cake.jpg" alt="Flork cu tort" class="flork-image">
+                <div class="flame-overlay" id="candleFlame"></div>
+            </div>
+
+            <button id="blowButton">😮‍💨</button>
+        </div>
+
+        <div id="finalImageContainer" class="hidden">
+            <h2 class="final-message-text">La 21 de ani esti chiar si mai sexy, o prietena uimitoare si as face orice pentru tine, ma simt ca ultimul om...</h2>
+            <img src="eyes.jpg.webp" alt="Mesaj special" class="final-image">
+            <button id="continueButton" class="continue-button">Vezi ce urmeaza</button>
+        </div>
+
+        <div id="imageGallery" class="hidden">
+            <div class="gallery-inner">
+                </div>
+            <button class="gallery-nav-button prev-button">&lt;</button>
+            <button class="gallery-nav-button next-button">&gt;</button>
+            <button id="giftButton" class="hidden gift-button">Si crezi ca te iert asa fara cadou?</button>
+        </div>
+
+        <div id="quizContainer" class="hidden">
+            <h2 class="quiz-question">Alege tu zana mea, inima mea, vrajitoarea suprema, o activitate cocheta</h2>
+            <form id="quizForm">
+                <label>
+                    <input type="radio" name="spiritAnimal" value="Picnic cu floricele"> Picnic cu floricele
+                </label>
+                <label>
+                    <input type="radio" name="spiritAnimal" value="Yoga"> Yoga
+                </label>
+                <label>
+                    <input type="radio" name="spiritAnimal" value="Tip prin tot campusul ca sunt o prietena groaznica"> Tip prin tot campusul ca sunt o prietena grozanica
+                </label>
+                <label>
+                    <input type="radio" name="spiritAnimal" value="Dai cu oua in mine"> Dai cu oua in mine
+                </label>
+                <label>
+                    <input type="radio" name="spiritAnimal" value="Toate si orice altceva mai vrei"> Toate si orice altceva 
+                </label>
+                <button type="submit" id="submitQuiz">Tot ma gandesc daca te iert</button>
+            </form>
+            <p id="quizResult" class="hidden"></p>
+            <div id="finalGifContainer" class="hidden">
+                <img id="finalGif" src="friend.gif" alt="Felicitare" class="final-gif-image">
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
